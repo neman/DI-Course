@@ -20,9 +20,9 @@ namespace SimpleDIConsole
             Configuration = builder.Build();
 
             //TODO: Comment later for other examples
-            //IMessageWriter writer = new ConsoleMessageWriter();
-            //var salutation = new Salutation(writer);
-            //salutation.Salute();
+            IMessageWriter writer = new ConsoleMessageWriter();
+            var salutation = new Salutation(writer);
+            salutation.Salute();
 
             //TODO: Remove to use late binding
             //var typeName = Configuration["MessageWriter"];
@@ -32,9 +32,9 @@ namespace SimpleDIConsole
             //salutation.Salute();
 
             //TODO: Remove to Use Decorator Pattern
-            IMessageWriter writer = new SecureMessageWriter(new ConsoleMessageWriter());
-            var salutation = new Salutation(writer);
-            salutation.Salute();
+            //IMessageWriter writer = new SecureMessageWriter(new ConsoleMessageWriter());
+            //var salutation = new Salutation(writer);
+            //salutation.Salute();
 
         }
     }
