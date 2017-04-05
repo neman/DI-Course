@@ -65,8 +65,12 @@ Show them each layer
 Ask if layers means loose coupling?
 Show the code
 
+Client Side Caching
+
 ## Lab example: Tight Coupling to Loose Coupling
 (transform ntier tight couple to loose couple)
+Create Repository Interface (add class library)
+
 
 ## What are the benefits of DI?
 Table is available on slides
@@ -79,19 +83,42 @@ Table is available on slides
  - TESTABILITY - An application is considered TESTABLE when it can be unit tested. 
 
 ## What to inject and what not to inject?
+
+ When you must decide how to package modules, loose coupling provides especially useful guidance. You don’t have to abstract everything away and make everything pluggable. 
+ The .NET Base Class Library (BCL) consists of many assemblies. Every time you write code that uses a type from a BCL assembly, you add a dependency to your module. In the previous section, I discussed how loose coupling is important, and how programming to an interface is the cornerstone.
+
+Does this imply that you can’t reference any BCL assemblies and use their types directly in your application? What if you would like to use an XmlWriter, which is defined in the System.Xml assembly? 
+
 - Seams 
     Everywhere we decide to program against an interface instead of a concrete type, we introduce a SEAM into the application. A SEAM is a place where an application is assembled from its constituent parts,[13] similar to the way a piece of clothing is sewn together at its seams. 
+    The Hello DI sample I built in section 1.2 contains a SEAM between Salutation and ConsoleMessageWriter. The Salutation class doesn’t directly depend on the ConsoleMessageWriter class; rather, it uses the IMessageWriter interface to write messages. You can take the application apart at this SEAM and reassemble it with a different message writer. 
 
 - Stable Dependencies 
     By default, you can consider most (but not all) types defined in the BCL as safe, or STABLE DEPENDENCIES—I call them stable because they’re already there, tend to be backwards compatible, and invoking them has deterministic outcomes. 
+
+     - The class or module already exists.
+     - You expect that new versions won’t contain breaking changes.
+     - The types in question contain deterministic algorithms.
+     - You never expect to have to replace the class or module with another.
+
+Ironically, DI CONTAINERS themselves will tend to be STABLE DEPENDENCIES, because they fit all the criteria. When you decide to base your application on a particular DI CONTAINER, you risk being stuck with this choice for the entire lifetime of the application; that’s yet another reason why you should limit the use of the container to the application’s COMPOSITION ROOT. 
+
+- Volatile Dependencies 
+
+     - The DEPENDENCY introduces a requirement to set up and configure a runtime environment for the application. A relational database is the archetypical example: if we don’t hide the relational database behind a SEAM, we can never replace it by any other technology. It also makes it hard to set up and run automated unit tests. Databases are a good example of BCL types that are VOLATILE DEPENDENCIES: even though LINQ to Entities is a technology contained in the BCL, its usage implies a relational database. Other out-of-process resources such as message queues, web services, and even the file system fall into this category. Please note that it isn’t so much the concrete .NET types that are Volatile, but rather what they imply about the runtime environment. The symptoms of this type of DEPENDENCY are lack of late binding and extensibility, as well as disabled TESTABILITY.
+    
+     - The DEPENDENCY doesn’t yet exist, but is still in development. The obvious symptom of such dependencies is the inability to do parallel development.
+    
+     - The DEPENDENCY isn’t installed on all machines in the development organization. This may be the case for expensive third-party libraries, or dependencies that can’t be installed on all operating systems. The most common symptom is disabled TESTABILITY.
+    
+     - The dependency contains nondeterministic behavior. This is particularly important in unit tests, because all tests should be deterministic. Typical sources of nondeterminism are random numbers and algorithms that depend on the current date or time. Note that common sources of nondeterminism, such as System.Random, System.Security.Cryptography.RandomNumberGenerator, or System.DateTime.Now are defined in mscorlib, so you can’t avoid having a reference to the assembly in which they’re defined. Nevertheless, you should treat them as VOLATILE DEPENDENCIES, because they tend to destroy TESTABILITY.
+
+It’s for VOLATILE DEPENDENCIES, rather than STABLE DEPENDENCIES, that we introduce SEAMS into our application.
 
 DI Scope
 - Object Composition
 - Object Lifetime
 - Interception
-
-
-
 
 
 DI anti-patterns
