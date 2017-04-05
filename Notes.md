@@ -20,8 +20,18 @@ What this means in terms of object-oriented software development is this: collab
 
 Understanding the purpose of DI 
 
-
 DEMO: Hello DI - small console app example
+
+Application Layering
+View - wpf, UI elements and xaml
+Presentation - ViewModel, Presentation logic
+Repository - responsible to interact with Data
+Service - wcf provides data
+DataModel - Shared project
+
+Show them each layer
+Ask if layers means loose coupling?
+Show the code
 
 What are the benefits of DI?
 
