@@ -11,6 +11,11 @@ namespace Superheroes.Presentation
     {
         protected SuperheroRepository _repository;
 
+        public SuperheroViewModel()
+        {
+            _repository = new SuperheroRepository();
+        }
+
         private IEnumerable<Superhero> _superheroes;
         public IEnumerable<Superhero> Superheroes
         {
@@ -22,12 +27,7 @@ namespace Superheroes.Presentation
                 _superheroes = value;
                 RaisePropertyChanged("Superheroes");
             }
-        }
-
-        public SuperheroViewModel()
-        {
-            _repository = new SuperheroRepository();
-        }
+        }       
 
         #region Commands
 
