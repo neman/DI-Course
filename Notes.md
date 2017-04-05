@@ -70,8 +70,15 @@ Show the code
 
 ## What are the benefits of DI?
 Table is available on slides
+ - Late binding - xml, json config (the ability to swap out one service with another is the most prevalent benefit for most people, so they tend to weigh the advantages against the disadvantages with     only this benefit in mind.)
+ - Extensibility - e.g. Decorator (Successful software must be able to change. You’ll need to add new features and extend existing features. Loose coupling enables us to efficiently recompose the         application, similar to the way that we can rewire electrical appliances using plugs and sockets.)
+   Loose coupling enables you to write code which is open for extensibility, but closed for modification. This is called the OPEN/CLOSED PRINCIPLE. The only place where you need to modify the code is at the application’s entry point; we call this the COMPOSITION ROOT. 
+ - Parallel development
+ - Maintainability - As the responsibility of each class becomes clearly defined and constrained, maintenance of the overall application becomes easier. This is a known benefit of the SINGLE          
+   RESPONSIBILITY PRINCIPLE, which states that each class should have only a single responsibility. 
+ - TESTABILITY - An application is considered TESTABLE when it can be unit tested. 
 
-What to inject and what not to inject?
+## What to inject and what not to inject?
 - Seams 
     Everywhere we decide to program against an interface instead of a concrete type, we introduce a SEAM into the application. A SEAM is a place where an application is assembled from its constituent parts,[13] similar to the way a piece of clothing is sewn together at its seams. 
 
