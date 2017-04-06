@@ -96,6 +96,7 @@ add SuperheroViewModel viewModel = new SuperheroViewModel();
 add IRepository reference
 
 final
+
 ```csharp
   protected override void OnStartup(StartupEventArgs e)
         {
@@ -107,7 +108,7 @@ final
             Application.Current.MainWindow.Show();
         }
 ```
-
+go to Presentation, delete `using Repository.Service;` and assembly ref
 
 
 
