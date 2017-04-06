@@ -110,6 +110,27 @@ final
 ```
 go to Presentation, delete `using Repository.Service;` and assembly ref
 
+next slide 
+Composing the Application
+Back to code adding a bootstrapper
+add sln folder Application
+Move SuperheroesViewer to new sln folder
+Add new project to ApplicationView sln folder (ClassLibrary)
+Add ref to (PresentationCore, PresentationFramework, System.Xaml, WindowsBase)
+Add ref to proj Superheroes.Presentation and Superheroes.DataModel
+Add existing Item SuperheroesViewerWindow.xaml
+Remove SuperheroesViewerWindow.xaml from Application
+Extract method from and call ComposeObjects
+
+```csharp
+SuperheroRepository repository = new SuperheroRepository();
+SuperheroViewModel viewModel = new SuperheroViewModel(repository);
+Application.Current.MainWindow = new SuperheroesViewerWindow(viewModel);
+```
+
+Coposition Root - location where we snap building blocks togheter
+View - contains UI Elements for app, better seperation
+Run the application
 
 
 ## What are the benefits of DI?
