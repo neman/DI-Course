@@ -111,8 +111,10 @@ final
 go to Presentation, delete `using Repository.Service;` and assembly ref
 
 next slide 
-Composing the Application
+## Composing the Application
 Back to code adding a bootstrapper
+
+## DEMO: Add Bootstraper app, Add different Repository, Add Caching repository
 add sln folder Application
 Move SuperheroesViewer to new sln folder
 Add new project to ApplicationView sln folder (ClassLibrary)
@@ -152,6 +154,12 @@ run app
 stop service to se caching
 
 Example of open closed principle
+
+## Composition Root
+
+The Composition Root can be implemented with Poor Man's DI, but is also the (only) appropriate place to use a DI Container.
+
+## The appropriate entry point
 
 
 
