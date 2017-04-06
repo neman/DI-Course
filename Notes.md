@@ -144,6 +144,17 @@ add tp App.config
   </appSettings>
 ```
 
+Client side caching add Caching repository
+add caching repository project
+add references to application
+compose root with CachedRepository and csv
+run app
+stop service to se caching
+
+Exmaple of open closed principle
+
+
+
 ## What are the benefits of DI?
 Table is available on slides
  - Late binding - xml, json config (the ability to swap out one service with another is the most prevalent benefit for most people, so they tend to weigh the advantages against the disadvantages with     only this benefit in mind.)
