@@ -151,7 +151,7 @@ compose root with CachedRepository and csv
 run app
 stop service to se caching
 
-Exmaple of open closed principle
+Example of open closed principle
 
 
 

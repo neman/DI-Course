@@ -1,0 +1,6 @@
+﻿Bob Rock,Magnus,6.04.2017,8
+Dylan Dog,Bonelli,6.04.2017,8
+Tex Willer,Bonelli,6.04.2017,7
+Corto Maltese,Darkwood,6.04.2017,9
+Mister No,Libellus,6.04.2017,6
+Batman,DC,1.03.1939,10

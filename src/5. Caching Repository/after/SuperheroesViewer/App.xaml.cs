@@ -18,12 +18,12 @@ namespace SuperheroesViewer
         protected override void OnStartup(StartupEventArgs e)
         {
             base.OnStartup(e);
-            CompositionObjects();
+            ComposeObjects();
             Application.Current.MainWindow.Title = "Loose Coupling - Superheroes";
             Application.Current.MainWindow.Show();
         }
 
-        private static void CompositionObjects()
+        private void ComposeObjects()
         {
 
             //ISuperheroRepository repository = new CSVRepository();
