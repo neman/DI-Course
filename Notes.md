@@ -48,6 +48,7 @@ The Adapter design pattern works like its physical namesake. It can be used to m
 
 In software design, this way of *INTERCEPTING* one implementation with another implementation of the same interface is known as the Decorator[5] design pattern. It gives us the ability to incrementally introduce new features and CROSS-CUTTING CONCERNS without having to rewrite or change a lot of our existing code. 
 
+
 Demo of SecurityConsoleWritter - Decorator Pattern
 
 The SecureMessageWriter implements the security features of the application, whereas the ConsoleMessageWriter addresses the user interface. This enables us to vary these aspects independently of each other and compose them as needed. 
@@ -206,11 +207,25 @@ Ironically, DI CONTAINERS themselves will tend to be STABLE DEPENDENCIES, becaus
 
 It’s for VOLATILE DEPENDENCIES, rather than STABLE DEPENDENCIES, that we introduce SEAMS into our application.
 
+## DI Containers
+
+after talk create ninject example project for DI
+
+##Lab excercise: Add DI Container which reads configuration from file 
+
+Lab for practice, create DI with file configuration,
+
 DI Scope
 - Object Composition
 - Object Lifetime
 - Interception
 
+ DI-PATTERNS
+
+CONSTRUCTOR INJECTION
+PROPERTY INJECTION
+METHOD INJECTION
+AMBIENT CONTEXT
 
 DI anti-patterns
 
@@ -219,3 +234,10 @@ DI anti-patterns
     CONSTRAINED CONSTRUCTION
     SERVICE LOCATOR
 
+DI Refactorings
+
+    Mapping runtime value to ABSTRACTIONS
+    Working with short-lived DEPENDENCIES
+    Resolving cyclic DEPENDENCIES
+    Dealing with Constructor Over-injection
+    Monitoring coupling
