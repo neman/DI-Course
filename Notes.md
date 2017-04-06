@@ -70,6 +70,45 @@ Client Side Caching
 ## Lab example: Tight Coupling to Loose Coupling
 (transform ntier tight couple to loose couple)
 Create Repository Interface (add class library)
+Add reference to DataModel
+Add CRUD operation
+Repository --> Add ref to repository interface
+ViewModel - Change to ISuperheroRepository
+add constructor injection --> build failed
+View ctor requires repository, add SuperheroViewModel to ctor and assign to DataContext
+app builds, but fail at runtime on F5 - `An unhandled exception of type 'System.NullReferenceException' occurred in PresentationFramework.dll Additional information: Object reference not set to an instance of an object.`
+go to App.xaml -> StartupUri
+` StartupUri="SuperheroesViewerWindow.xaml`
+Delete previous line of code - no window shown on F5
+Go to App.xaml.cs
+Add 
+```csharp
+    protected override void OnStartup(StartupEventArgs e)
+        {
+            base.OnStartup(e);
+            Application.Current.MainWindow = new SuperheroesViewerWindow();
+            Application.Current.MainWindow.Show();
+        }
+```
+change to 
+Application.Current.MainWindow = new SuperheroesViewerWindow(viewModel);
+add SuperheroViewModel viewModel = new SuperheroViewModel();
+add IRepository reference
+
+final
+```csharp
+  protected override void OnStartup(StartupEventArgs e)
+        {
+            base.OnStartup(e);
+            SuperheroRepository repository = new SuperheroRepository();
+            SuperheroViewModel viewModel = new SuperheroViewModel(repository);
+            Application.Current.MainWindow.Title = "Loose Coupling - Superheroes";
+            Application.Current.MainWindow = new SuperheroesViewerWindow(viewModel);
+            Application.Current.MainWindow.Show();
+        }
+```
+
+
 
 
 ## What are the benefits of DI?

@@ -4,16 +4,17 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Windows.Input;
 using Superheroes.DataModel;
+using Superheroes.Repository.Interface;
 
 namespace Superheroes.Presentation
 {
     public class SuperheroViewModel : INotifyPropertyChanged
     {
-        protected SuperheroRepository _repository;
+        protected ISuperheroRepository _repository;
 
-        public SuperheroViewModel()
+        public SuperheroViewModel(ISuperheroRepository repository)
         {
-            _repository = new SuperheroRepository();
+            _repository = repository;
         }
 
         private IEnumerable<Superhero> _superheroes;

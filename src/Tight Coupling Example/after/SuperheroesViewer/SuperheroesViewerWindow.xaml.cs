@@ -5,10 +5,10 @@ namespace SuperheroesViewer
 {
     public partial class SuperheroesViewerWindow : Window
     {
-        public SuperheroesViewerWindow()
+        public SuperheroesViewerWindow(SuperheroViewModel viewModel)
         {
             InitializeComponent();
-            DataContext = new SuperheroViewModel();
+            DataContext = viewModel;
         }
     }
 }

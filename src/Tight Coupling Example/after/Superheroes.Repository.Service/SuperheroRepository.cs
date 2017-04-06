@@ -2,10 +2,11 @@
 using System.Linq;
 using Superheroes.DataModel;
 using Superheroes.Repository.WCF;
+using Superheroes.Repository.Interface;
 
 namespace Repository.Service
 {
-    public class SuperheroRepository
+    public class SuperheroRepository : ISuperheroRepository
     {
         SuperheroServiceClient _serviceProxy = new SuperheroServiceClient();
 

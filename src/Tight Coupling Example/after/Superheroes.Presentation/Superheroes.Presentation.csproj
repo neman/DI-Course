@@ -47,6 +47,10 @@
       <Project>{b557cd54-35f3-4003-a6ee-cf1f3edfa76e}</Project>
       <Name>Superheroes.DataModel</Name>
     </ProjectReference>
+    <ProjectReference Include="..\Superheroes.Repository.Interface\Superheroes.Repository.Interface.csproj">
+      <Project>{5398b8dd-d658-4ca7-a59d-6b416ac976e6}</Project>
+      <Name>Superheroes.Repository.Interface</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Superheroes.Repository.Service\Superheroes.Repository.csproj">
       <Project>{8eba64e3-198d-4456-b9bf-d7ef9bd2cbce}</Project>
       <Name>Superheroes.Repository</Name>

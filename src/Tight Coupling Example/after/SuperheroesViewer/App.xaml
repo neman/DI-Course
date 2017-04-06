@@ -1,8 +1,9 @@
 ﻿<Application x:Class="SuperheroesViewer.App"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-             xmlns:local="clr-namespace:SuperheroesViewer"
-             StartupUri="SuperheroesViewerWindow.xaml">
+             xmlns:local="clr-namespace:SuperheroesViewer">
+    <!--StartupUri="SuperheroesViewerWindow.xaml"-->
+             
     <Application.Resources>
         <!-- Value Converters -->
         <local:DecadeConverter x:Key="myDecadeConverter"/>
