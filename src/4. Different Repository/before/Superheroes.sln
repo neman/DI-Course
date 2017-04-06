@@ -1,0 +1,82 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.25420.1
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Services", "Services", "{54D3C6DD-CC0E-435A-9E22-6038140FAF4D}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Repositories", "Repositories", "{3E718516-DFA5-4CF0-8021-45B0236D9C1F}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Presentation", "Presentation", "{79D14E44-1C3A-41E3-91C1-4349482BDD45}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "ApplicationView", "ApplicationView", "{BD007A91-31FD-4C9A-87BB-C74D479E8592}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Shared", "Shared", "{4AD933FF-2A1B-4BA7-AE9F-C57B68ACBE66}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SuperheroesViewer", "SuperheroesViewer\SuperheroesViewer.csproj", "{6DE68179-3C6A-4F77-B0C3-75921A1C8C37}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Superheroes.Presentation", "Superheroes.Presentation\Superheroes.Presentation.csproj", "{25A262B7-9146-4EE3-8D2F-321172A03BD2}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Superheroes.Repository", "Superheroes.Repository.Service\Superheroes.Repository.csproj", "{8EBA64E3-198D-4456-B9BF-D7EF9BD2CBCE}"
+	ProjectSection(ProjectDependencies) = postProject
+		{5FE8AD75-B070-4A7F-9587-C40EE51BDD44} = {5FE8AD75-B070-4A7F-9587-C40EE51BDD44}
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Superheroes.Service", "Superheroes.Service\Superheroes.Service.csproj", "{5FE8AD75-B070-4A7F-9587-C40EE51BDD44}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Superheroes.DataModel", "Superheroes.DataModel\Superheroes.DataModel.csproj", "{B557CD54-35F3-4003-A6EE-CF1F3EDFA76E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Superheroes.Repository.Interface", "Superheroes.Repository.Interface\Superheroes.Repository.Interface.csproj", "{5398B8DD-D658-4CA7-A59D-6B416AC976E6}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Application", "Application", "{A18D08B6-8F33-412E-AA4D-831375435218}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SuperheroesViewer.View", "SuperheroesViewer.View\SuperheroesViewer.View.csproj", "{55BAA4A5-AFAC-4469-8552-5671323B5E45}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{6DE68179-3C6A-4F77-B0C3-75921A1C8C37}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6DE68179-3C6A-4F77-B0C3-75921A1C8C37}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6DE68179-3C6A-4F77-B0C3-75921A1C8C37}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6DE68179-3C6A-4F77-B0C3-75921A1C8C37}.Release|Any CPU.Build.0 = Release|Any CPU
+		{25A262B7-9146-4EE3-8D2F-321172A03BD2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{25A262B7-9146-4EE3-8D2F-321172A03BD2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{25A262B7-9146-4EE3-8D2F-321172A03BD2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{25A262B7-9146-4EE3-8D2F-321172A03BD2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8EBA64E3-198D-4456-B9BF-D7EF9BD2CBCE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8EBA64E3-198D-4456-B9BF-D7EF9BD2CBCE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8EBA64E3-198D-4456-B9BF-D7EF9BD2CBCE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8EBA64E3-198D-4456-B9BF-D7EF9BD2CBCE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5FE8AD75-B070-4A7F-9587-C40EE51BDD44}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5FE8AD75-B070-4A7F-9587-C40EE51BDD44}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5FE8AD75-B070-4A7F-9587-C40EE51BDD44}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5FE8AD75-B070-4A7F-9587-C40EE51BDD44}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B557CD54-35F3-4003-A6EE-CF1F3EDFA76E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B557CD54-35F3-4003-A6EE-CF1F3EDFA76E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B557CD54-35F3-4003-A6EE-CF1F3EDFA76E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B557CD54-35F3-4003-A6EE-CF1F3EDFA76E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5398B8DD-D658-4CA7-A59D-6B416AC976E6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5398B8DD-D658-4CA7-A59D-6B416AC976E6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5398B8DD-D658-4CA7-A59D-6B416AC976E6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5398B8DD-D658-4CA7-A59D-6B416AC976E6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{55BAA4A5-AFAC-4469-8552-5671323B5E45}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{55BAA4A5-AFAC-4469-8552-5671323B5E45}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{55BAA4A5-AFAC-4469-8552-5671323B5E45}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{55BAA4A5-AFAC-4469-8552-5671323B5E45}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{6DE68179-3C6A-4F77-B0C3-75921A1C8C37} = {A18D08B6-8F33-412E-AA4D-831375435218}
+		{25A262B7-9146-4EE3-8D2F-321172A03BD2} = {79D14E44-1C3A-41E3-91C1-4349482BDD45}
+		{8EBA64E3-198D-4456-B9BF-D7EF9BD2CBCE} = {3E718516-DFA5-4CF0-8021-45B0236D9C1F}
+		{5FE8AD75-B070-4A7F-9587-C40EE51BDD44} = {54D3C6DD-CC0E-435A-9E22-6038140FAF4D}
+		{B557CD54-35F3-4003-A6EE-CF1F3EDFA76E} = {4AD933FF-2A1B-4BA7-AE9F-C57B68ACBE66}
+		{5398B8DD-D658-4CA7-A59D-6B416AC976E6} = {3E718516-DFA5-4CF0-8021-45B0236D9C1F}
+		{55BAA4A5-AFAC-4469-8552-5671323B5E45} = {BD007A91-31FD-4C9A-87BB-C74D479E8592}
+	EndGlobalSection
+EndGlobal

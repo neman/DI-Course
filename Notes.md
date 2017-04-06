@@ -132,6 +132,17 @@ Coposition Root - location where we snap building blocks togheter
 View - contains UI Elements for app, better seperation
 Run the application
 
+new demo
+add additional differentRepository
+add Superheroes.Repository.CSV ref to Bootstrap
+
+add tp App.config
+```xml
+  <!-- Settings for CSV Repository -->
+  <appSettings>
+    <add key="CSVFileName" value="Superheroes.txt"/>
+  </appSettings>
+```
 
 ## What are the benefits of DI?
 Table is available on slides
