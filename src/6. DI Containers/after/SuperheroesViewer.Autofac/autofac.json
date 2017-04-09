@@ -1,0 +1,16 @@
+﻿{
+  "components": [
+    {
+      "type": "Repository.Service.SuperheroRepository, Superheroes.Repository",
+      //"type": "SuperheroesRepository.CSV.CSVRepository, Superheroes.Repository.CSV",
+      "services": [
+        {
+          "type": "Superheroes.Repository.Interface.ISuperheroRepository, Superheroes.Repository.Interface"
+        }
+      ]
+    },
+    {
+      "type": "Superheroes.Presentation.SuperheroViewModel, Superheroes.Presentation"
+    }
+  ]
+}

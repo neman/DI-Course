@@ -38,6 +38,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Superheroes.Repository.Cach
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SuperheroesViewer.Ninject", "SuperheroesViewer.Ninject\SuperheroesViewer.Ninject.csproj", "{1D3CD241-920B-445B-86E5-F3020A87F5E3}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SuperheroesViewer.Autofac", "SuperheroesViewer.Autofac\SuperheroesViewer.Autofac.csproj", "{8DFDF04E-882D-4264-A8B4-50F6093FC417}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -84,6 +86,10 @@ Global
 		{1D3CD241-920B-445B-86E5-F3020A87F5E3}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{1D3CD241-920B-445B-86E5-F3020A87F5E3}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{1D3CD241-920B-445B-86E5-F3020A87F5E3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8DFDF04E-882D-4264-A8B4-50F6093FC417}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8DFDF04E-882D-4264-A8B4-50F6093FC417}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8DFDF04E-882D-4264-A8B4-50F6093FC417}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8DFDF04E-882D-4264-A8B4-50F6093FC417}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -99,5 +105,6 @@ Global
 		{22D242EB-8113-49E3-8CC9-03A41E3B185E} = {3E718516-DFA5-4CF0-8021-45B0236D9C1F}
 		{898C1EA9-324B-48CE-917B-053C842EA0A0} = {3E718516-DFA5-4CF0-8021-45B0236D9C1F}
 		{1D3CD241-920B-445B-86E5-F3020A87F5E3} = {A18D08B6-8F33-412E-AA4D-831375435218}
+		{8DFDF04E-882D-4264-A8B4-50F6093FC417} = {A18D08B6-8F33-412E-AA4D-831375435218}
 	EndGlobalSection
 EndGlobal

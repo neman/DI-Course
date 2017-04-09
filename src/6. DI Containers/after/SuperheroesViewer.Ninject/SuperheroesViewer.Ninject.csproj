@@ -62,7 +62,9 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Converters.cs" />
-    <Resource Include="Superheroes.txt" />
+    <None Include="Superheroes.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs">

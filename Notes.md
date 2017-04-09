@@ -211,21 +211,38 @@ It’s for VOLATILE DEPENDENCIES, rather than STABLE DEPENDENCIES, that we intro
 
 after talk create ninject example project for DI
 
-##Lab excercise: Add DI Container which reads configuration from file 
+## Lab excercise: Add DI Container which reads configuration from file 
 
 Lab for practice, create DI with file configuration,
+
+
+## DI-PATTERNS
+
+ - CONSTRUCTOR INJECTION
+
+How do we guarantee that a necessary Dependency is always available to the class we’re currently developing?
+BY REQUIRING ALL CALLERS TO SUPPLY THE DEPENDENCY AS A PARAMETER TO THE CLASS’S CONSTRUCTOR. 
+
+Keep the constructor free of any other logic. The SINGLE RESPONSIBILITY PRINCIPLE implies that members should do only one thing, and now that we use the constructor to inject DEPENDENCIES, we should prefer to keep it free of other concerns. 
+
+Think about CONSTRUCTOR INJECTION as statically declaring a class’s Dependencies. The constructor signature is compiled with the type and is available for all to see. It clearly documents that the class requires the DEPENDENCIES it requests through its constructor. 
+
+CONSTRUCTOR INJECTION should be your default choice for DI. It addresses the most common scenario where a class requires one or more DEPENDENCIES, and no reasonable LOCAL DEFAULTS are available. 
+
+If at all possible, constrain the design to a single constructor. Overloaded constructors lead to ambiguity: which constructor should a DI CONTAINER use? 
+
+
+
+PROPERTY INJECTION
+METHOD INJECTION
+AMBIENT CONTEXT
 
 DI Scope
 - Object Composition
 - Object Lifetime
 - Interception
 
- DI-PATTERNS
 
-CONSTRUCTOR INJECTION
-PROPERTY INJECTION
-METHOD INJECTION
-AMBIENT CONTEXT
 
 DI anti-patterns
 
