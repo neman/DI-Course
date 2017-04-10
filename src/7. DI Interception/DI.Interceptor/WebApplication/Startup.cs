@@ -39,8 +39,8 @@ namespace WebApplication
             var builder = new ContainerBuilder();
 
 
-                      
-            builder.RegisterType<Product>()
+
+            builder.RegisterType<Product>().As<IProduct>()
                 .EnableClassInterceptors()
                 .InterceptedBy(typeof(LoggerInterceptor));
             builder.RegisterType<LoggerInterceptor>().AsSelf();
@@ -55,12 +55,12 @@ namespace WebApplication
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-        public void Configure(IApplicationBuilder app, IHostingEnvironment env, ILoggerFactory loggerFactory)
+        public void Configure(IApplicationBuilder app, IHostingEnvironment env, ILoggerFactory loggerFactory, IProduct product)
         {
             loggerFactory.AddConsole(Configuration.GetSection("Logging"));
             loggerFactory.AddDebug();
 
-            var product = ApplicationContainer.Resolve<Product>();
+            //var product = ApplicationContainer.Resolve<Product>();
             product.DoStuff(5);
 
             app.UseMvc();

@@ -25,7 +25,7 @@ namespace WebApplication
 
             invocation.Proceed();
 
-            logger.LogInformation($"Done {invocation.Method.Name} ");
+            logger.LogWarning($"Done {invocation.Method.Name} ");
         }
     }
 }
