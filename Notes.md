@@ -231,11 +231,106 @@ CONSTRUCTOR INJECTION should be your default choice for DI. It addresses the mos
 
 If at all possible, constrain the design to a single constructor. Overloaded constructors lead to ambiguity: which constructor should a DI CONTAINER use? 
 
+ - PROPERTY INJECTION
 
+How do we enable DI as an option in a class when we have a good Local Default?
+BY EXPOSING A WRITABLE PROPERTY THAT LETS CALLERS SUPPLY A DEPENDENCY IF THEY WISH TO OVERRIDE THE DEFAULT BEHAVIOR.
 
-PROPERTY INJECTION
-METHOD INJECTION
-AMBIENT CONTEXT
+When a class has a good LOCAL DEFAULT, but we still want to leave it open for extensibility, we can expose a writable property that allows a client to supply a different implementation of the class’s DEPENDENCY than the default.  
+
+PROPERTY INJECTION is also known as SETTER INJECTION. 
+
+```csharp
+public partial class SomeClass
+{
+    public ISomeInterface Dependency { get; set; }
+}
+```
+You can’t mark the Dependency property’s backing field as readonly because you allow callers to modify the property at any given time of SomeClass’s lifetime. 
+
+Another complication arises if you allow clients to switch the DEPENDENCY in the middle of the class’s lifetime. This can be addressed by introducing an internal flag that only allows a client to set the DEPENDENCY once.
+
+PROPERTY INJECTION should only be used when the class you’re developing has a good LOCAL DEFAULT and you still want to enable callers to provide different implementations of the class’s DEPENDENCY.
+PROPERTY INJECTION is best used when the DEPENDENCY is optional. 
+
+It would be tempting to make that implementation the default used by the class under development. However, when such a prospective default is implemented in a different assembly, using it as a default would mean creating a hard reference to that other assembly, effectively violating many of the benefits of loose coupling described in chapter 1.
+
+Conversely, if the intended default implementation is defined in the same library as the consuming class, you don’t have that problem. This is unlikely to be the case with Repositories, but such LOCAL DEFAULTS are more likely as Strategies
+
+PROPERTY INJECTION is only one among many different ways of applying the OPEN/CLOSED PRINCIPLE. 
+
+Sometimes you only wish to provide an extensibility point, but leave the LOCAL DEFAULT as a no-op. In such cases, you can use the Null Object[6] pattern to implement the LOCAL DEFAULT. 
+
+With CONSTRUCTOR INJECTION, you could protect the class against such incidents by applying the readonly keyword to the backing field, but this isn’t possible when you expose the DEPENDENCY as a writable property. In many cases, CONSTRUCTOR INJECTION is much simpler and more robust, but there are situations where PROPERTY INJECTION is the correct choice. This is the case when supplying a DEPENDENCY is optional, because you have a good LOCAL DEFAULT. 
+
+e.g. Default is MemoryCache, but change to RedisCache
+
+ - METHOD INJECTION
+
+How can we inject a Dependency into a class when it’s different for each operation?
+BY SUPPLYING IT AS A METHOD PARAMETER. 
+
+```csharp 
+    public void DoStuff(ISomeInterface dependency)
+```
+
+Often, the DEPENDENCY will represent some sort of context for an operation that’s supplied alongside a “proper” value: 
+
+```csharp 
+    public string DoStuff(SomeValue value, ISomeContext context)
+```
+
+When to use it?
+METHOD INJECTION is best used when the DEPENDENCY can vary with each method call. This can be the case when the DEPENDENCY itself represents a value, but is often seen when the caller wishes to provide the consumer with information about the context in which the operation is being invoked. 
+
+```csharp
+    public virtual object ConvertTo(ITypeDescriptorContext context,CultureInfo culture, object value, Type destinationType)
+```
+```csharp
+    object BindModel(ControllerContext controllerContext, ModelBindingContext bindingContext);
+```
+
+if you’re building a framework, METHOD INJECTION can often be useful, because it allows you to pass information about the context to add-ins to the framework. That’s one reason why we see METHOD INJECTION used so prolifically in the BCL. 
+
+We mainly use METHOD INJECTION when we already have an instance of the DEPENDENCY we want to pass on to collaborators, but where we don’t know the concrete types of the collaborators at design time (such as is the case with add-ins).
+
+With METHOD INJECTION, we’re on the other side of the fence compared to the other DI patterns: we don’t consume the DEPENDENCY, but rather supply it. The types to which we supply the DEPENDENCY have no choice in how to model DI or whether they need the DEPENDENCY at all. They can consume it or ignore it as they see fit. 
+
+ - AMBIENT CONTEXT
+
+How can we make a Dependency available to every module without polluting every API with Cross-Cutting Concerns?
+BY MAKING IT AVAILABLE VIA A STATIC ACCESSOR.  
+
+```csharp
+public string GetMessage()
+{
+    return SomeContext.Current.SomeValue;
+}
+```
+
+In this case, the context has a static Current property that a consumer can access. This property may be truly static, or may be associated with the currently executing thread. 
+
+The Context can be Abstract class, which allows us to replace one context with another implementation at runtime. 
+
+The difference is that an AMBIENT CONTEXT only provides an instance of a single, strongly-typed DEPENDENCY, whereas a SERVICE LOCATOR is supposed to provide instances for every DEPENDENCY you might request. The differences are subtle, so be sure to fully understand when to apply AMBIENT CONTEXT before you do so. When in doubt, pick one of the other DI patterns.
+
+When an AMBIENT CONTEXT is in play, it’s impossible to tell whether a given class uses it just by looking at its interface.
+
+When an AMBIENT CONTEXT is in play, it’s impossible to tell whether a given class uses it just by looking at its interface.
+
+this implicitness also makes it hard to discover a class’s extensibility points
+
+BCL example is `System.Security.Principal.IPrincipal`
+`Thread.CurrentCulture`
+
+TimeProvider, DefaultTimeProvider, property TimeProvider
+Testing DateTime.Now
+
+Adapter Pattern can Abstract this ambient context
+
+ - Interceptor
+ Add another method to Product. Make it non virtual to show how it works.
+ 
 
 DI Scope
 - Object Composition
