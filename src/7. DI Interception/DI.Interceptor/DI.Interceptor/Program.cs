@@ -1,6 +1,7 @@
 ﻿using Autofac;
 using Autofac.Extras.DynamicProxy;
 using Castle.DynamicProxy;
+using DataModel;
 using System;
 
 namespace DI.Interceptor
@@ -9,20 +10,6 @@ namespace DI.Interceptor
     {
         static void Main(string[] args)
         {
-            //var builder = new ContainerBuilder();
-            //builder.RegisterType<Product>().AsSelf()
-            //.EnableClassInterceptors()
-            //.InterceptedBy(typeof(CallLogger));
-
-            ////builder.Register(c => new CallLogger(Console.Out));
-            //builder.Register(c => new CallLogger(Console.Out)).Named<IInterceptor>("log-calls");
-            //var container = builder.Build();
-
-            //var product = container.Resolve<Product>();
-
-            //product.Add();
-
-            //Console.WriteLine("Hello World!");
             var builder = new ContainerBuilder();
             builder.RegisterType<Product>()
                 .EnableClassInterceptors()
